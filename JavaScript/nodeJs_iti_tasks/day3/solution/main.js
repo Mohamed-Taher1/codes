@@ -39,19 +39,17 @@
 /******************************task3******************* */
 
 var arr = [11.6, 90, 43, 774.7894];
+var temp = arr[0];
 
-function displayNumbersWithSameLength(arr) {
-    var maxLength = 0;
-
-    for (var i = 0; i < arr.length; i++) {
-        var length = arr[i].toString().split('.')[1]?.length || 0;
-        maxLength = Math.max(maxLength, length);
-    }
-
-    for (var i = 0; i < arr.length; i++) {
-        var numString = arr[i].toFixed(maxLength);
-        console.log(numString);
+for (var i = 0; i < arr.length; i++) {
+    if (arr[i].toString().length > temp.toString().length) {
+        temp = arr[i];
+        console.log(temp);
     }
 }
 
-displayNumbersWithSameLength(arr);
+var len = temp.toString().length - 1;
+
+for (var i = 0; i < arr.length; i++) {
+    console.log(arr[i].toPrecision(len));
+}
